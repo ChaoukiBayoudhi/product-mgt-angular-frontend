@@ -1,3 +1,6 @@
-<h3>
-    List of Products
-</h3>
+<mat-tab-group [disableRipple]="false">
+    <mat-tab label="tab" *ngFor="let p of products">
+        <!--loop through  product array to list them-->
+    </mat-tab>
+
+</mat-tab-group>

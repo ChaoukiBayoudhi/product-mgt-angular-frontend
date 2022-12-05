@@ -20,7 +20,19 @@ export class ProductService {
   }
   //add product
   addProduct(product:Product):Observable<Product>{
-    return this.http.post<Product>(this.apiUrl+'/add',product);
+    return this.http.post<Product>(this.apiUrl+'/add',product); //post request have 2 parameters: url and data(product)
+  }
+  //update product
+  updateProduct(product:Product,id:number):Observable<Product>{
+    return this.http.put<Product>(this.apiUrl+'/update'+id,product);
+  }
+  //delete product
+  deleteProduct(id:number):Observable<any>{ //any is used when we don't know the return type
+    return this.http.delete(this.apiUrl+'/delete'+id);
+  }
+  //get expired products
+  getExpiredProducts():Observable<Product[]>{ 
+    return this.http.get<Product[]>(this.apiUrl+'/expired');
   }
 
 }
