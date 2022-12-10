@@ -6,4 +6,5 @@ export class Product {
     fabricationDate!: Date;
     expirationDate!: Date;
     stock!: number;
+    href!: string;
 }

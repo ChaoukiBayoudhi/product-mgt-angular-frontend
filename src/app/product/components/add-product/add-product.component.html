@@ -1,1 +1,38 @@
-<p>add-product works!</p>
+<mat-card>
+    <form #productForm="ngForm" (ngSubmit)="save(productForm)">
+
+        <mat-card-header>
+            <mat-card-title>
+                <h2>Add New Product</h2>
+            </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <!--<input type="hidden" name="href" [(ngModel)]="product.href">-->
+            <mat-form-field>
+                <input matInput placeholder="Product Name" [(ngModel)]="product.name" required name="name" #name>
+            </mat-form-field>
+<br/>
+            <mat-form-field>
+                <input matInput placeholder="Product price" [(ngModel)]="product.price" required name="price" #price>
+            </mat-form-field>
+            <br/>
+            <mat-form-field appearance="fill">
+                <mat-label>Description</mat-label>
+                <textarea matInput [(ngModel)]="product.description" name="description" #description></textarea>
+              </mat-form-field>
+              <br/>
+            <mat-form-field>
+              <input matInput placeholder="Product stock" [(ngModel)]="product.stock" name="stock" #stock>
+          </mat-form-field>
+          <br/>
+            
+        </mat-card-content>
+
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!productForm.form.valid">Add Product</button>
+            <a mat-button routerLink="/products">Cancel</a>
+        </mat-card-actions>
+        
+    </form>
+</mat-card>
